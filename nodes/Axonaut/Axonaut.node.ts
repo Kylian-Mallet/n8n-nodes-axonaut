@@ -26,7 +26,8 @@ export class Axonaut implements INodeType {
 			},
 		],
 		requestDefaults: {
-			baseURL: 'https://axonaut.com/api/v2',
+			// TODO: Change for production
+			baseURL: 'https://n8n-axonaut.requestcatcher.com/',
 			headers: {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',

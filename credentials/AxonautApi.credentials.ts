@@ -1,4 +1,10 @@
-import {IAuthenticateGeneric, Icon, ICredentialType, INodeProperties} from 'n8n-workflow';
+import {
+	IAuthenticateGeneric,
+	Icon,
+	type ICredentialTestRequest,
+	ICredentialType,
+	INodeProperties
+} from 'n8n-workflow';
 
 export class AxonautApi implements ICredentialType {
 	name = 'axonautApi';
@@ -24,4 +30,15 @@ export class AxonautApi implements ICredentialType {
 			}
 		},
 	};
+
+	test: ICredentialTestRequest = {
+		request: {
+			baseURL: 'https://axonaut.com/api/v2',
+			url: '/me',
+			method: 'GET',
+			headers: {
+				userApiKey: '={{$credentials.apiKey}}'
+			}
+		}
+	}
 }
